@@ -1,5 +1,9 @@
 # See https://help.github.com/ignore-files/ for more about ignoring files.
 
+# Firebase tests
+.firebaserc
+firebase.json
+
 # Script to deploy
 script-deploy.sh
 
@@ -8,8 +12,8 @@ script-deploy.sh
 package-lock.json
 /package-lock.json
 */node_modules
+package-lock.json
 */package-lock.json
-
 
 # testing
 /coverage
