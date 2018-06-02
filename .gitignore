@@ -1,0 +1,19 @@
+# Dependências Node.js
+/node_modules
+
+# Arquivos compilados*
+/build
+
+# Outros
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# LOGs
+*.log
+*.log.*
+
+# Configurações do WebStorm
+.idea/
