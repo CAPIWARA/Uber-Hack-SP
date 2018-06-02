@@ -3,6 +3,10 @@ import PropTypes from 'prop-types';
 import axios from 'axios';
 import {compareTokenExpDate, getToken, isAuthenticated, refreshToken} from './actions/Login/actionCreator';
 import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom'
+import ScrollToTop from './helpers/ScrollToTop';
+import Login from './views/LoginView';
+import NotFound from './views/NotFound';
+import Home from "./views/Home";
 
 const PrivateRoute = ({children}) => (
   <Route render={props => (
@@ -22,7 +26,7 @@ class App extends Component {
   render() {
     axios.interceptors.request.use(
       async config => {
-        if (compareTokenExpDate() && config.url.search('refresh') < 0){
+        if (compareTokenExpDate() && config.url.search('refresh') < 0) {
           await refreshToken();
         }
 
@@ -36,20 +40,20 @@ class App extends Component {
     return (
       <Router>
         <ScrollToTop>
-            <Switch>
+          <Switch>
 
-              <Route exact path='/' component={}/>
+            <Route exact path='/' component={Login}/>
 
-              <PrivateRoute>
-                <Switch>
+            <PrivateRoute>
+              <Switch>
 
-                  <Route exact path='/' component={}/>
+                <Route exact path='/home' component={Home}/>
 
-                  <Route component={}/>
-                </Switch>
-              </PrivateRoute>
-              <Route component={}/>
-            </Switch>
+                <Route component={NotFound}/>
+              </Switch>
+            </PrivateRoute>
+            <Route component={NotFound}/>
+          </Switch>
 
         </ScrollToTop>
       </Router>
