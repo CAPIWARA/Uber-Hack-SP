@@ -1,3 +1,4 @@
+import './App.css';
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
@@ -52,7 +53,6 @@ class App extends Component {
                 <Route component={NotFound}/>
               </Switch>
             </PrivateRoute>
-            <Route component={NotFound}/>
           </Switch>
 
         </ScrollToTop>
