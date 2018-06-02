@@ -33,44 +33,22 @@ class App extends Component {
       error => (Promise.reject(error))
     );
 
-    axios.interceptors.response.use(null, error => {
-      return new Promise(async (resolve, reject) => {
-        const defaultMessage = "Desculpe, ocorreu um erro, por favor tente novamente mais tarde!";
-        if (error.response) {
-
-          if (error.response.status === 401) {
-            this.props.dispararErro("Sua sessão expirou!", () => window.location.href = '/logout');
-          } else {
-            this.props.dispararErro((error.response.data && error.response.data.message) || defaultMessage);
-          }
-          reject(error)
-        } else {
-          if(navigator.onLine){
-            this.props.dispararErro(defaultMessage, () => window.location.href = '/logout');
-          } else {
-            this.props.dispararErro("Sem conexão. Verifique sua internet e tente novamente.");
-          }
-          reject(error);
-        }
-      });
-    });
-
     return (
       <Router>
         <ScrollToTop>
             <Switch>
 
               <Route exact path='/' component={}/>
-              <Route exact path='/login' component={Cadastro}/>
 
               <PrivateRoute>
                 <Switch>
-                  <Route exact path='/logout' component={Logout}/>
 
-                  <Route component={NotFound}/>
+                  <Route exact path='/' component={}/>
+
+                  <Route component={}/>
                 </Switch>
               </PrivateRoute>
-              <Route component={NotFound}/>
+              <Route component={}/>
             </Switch>
 
         </ScrollToTop>

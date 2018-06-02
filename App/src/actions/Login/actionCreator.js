@@ -1,5 +1,4 @@
 import axios from 'axios';
-import UrlAPI from '../../components/UrlAPI';
 
 const setRefreshExpiration = () => {
   const expDate = new Date().getTime() + 900000;
@@ -24,43 +23,45 @@ export const getToken = () => {
   return localStorage.getItem('user');
 };
 
-export const signInAction = (values, history, resolve, reject) => {
-  return () => {
-    axios({
-      method: 'post',
-      url: `${UrlAPI.getUrl()}/api/auth`,
-      data: values
-    })
-      .then(res => {
-        setToken(res.data.token);
-        history.push(UrlAPI.getUrl('initialPage'));
-        resolve();
-      })
-      .catch(err => {
-        reject(err);
-      })
-  }
-};
+// export const signInAction = (values, history, resolve, reject) => {
+//   return () => {
+//     axios({
+//       method: 'post',
+//       url: `${UrlAPI.getUrl()}/api/auth`,
+//       data: values
+//     })
+//       .then(res => {
+//         setToken(res.data.token);
+//         history.push(UrlAPI.getUrl('initialPage'));
+//         resolve();
+//       })
+//       .catch(err => {
+//         reject(err);
+//       })
+//   }
+// };
 
 export const isAuthenticated = () => {
-  return getToken();
+  // return getToken();
+  return true
 };
 
-export const signOutAction = () => {
-  return () => {
-    localStorage.clear();
-    window.location = '/';
-  }
-};
+// export const signOutAction = () => {
+//   return () => {
+//     localStorage.clear();
+//     window.location = '/';
+//   }
+// };
 
 export const refreshToken = () => {
   return new Promise((resolve, reject) => {
-    axios.get(`${UrlAPI.getUrl()}/api/auth/refresh`)
-      .then(res => {
-        console.log(res.data);
-        setToken(res.data.token);
-        resolve();
-      })
-      .catch(err => reject(err))
+    // axios.get(`${UrlAPI.getUrl()}/api/auth/refresh`)
+    //   .then(res => {
+    //     console.log(res.data);
+    //     setToken(res.data.token);
+    //     resolve();
+    //   })
+    //   .catch(err => reject(err))
+    resolve()
   })
 };
