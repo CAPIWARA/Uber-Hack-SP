@@ -1,0 +1,15 @@
+.SlippySpinner {
+  display: block;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 8px solid;
+  border-color: var(--color-primary) transparent var(--color-primary);
+  animation: spin .8s linear infinite;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
