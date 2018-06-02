@@ -23,27 +23,29 @@ export const getToken = () => {
   return localStorage.getItem('user');
 };
 
-// export const signInAction = (values, history, resolve, reject) => {
-//   return () => {
-//     axios({
-//       method: 'post',
-//       url: `${UrlAPI.getUrl()}/api/auth`,
-//       data: values
-//     })
-//       .then(res => {
-//         setToken(res.data.token);
-//         history.push(UrlAPI.getUrl('initialPage'));
-//         resolve();
-//       })
-//       .catch(err => {
-//         reject(err);
-//       })
-//   }
-// };
+export const signInAction = (values, history, resolve, reject) => {
+  return () => {
+  //   axios({
+  //     method: 'post',
+  //     url: `${UrlAPI.getUrl()}/api/auth`,
+  //     data: values
+  //   })
+  //     .then(res => {
+  //       setToken(res.data.token);
+  //       history.push(UrlAPI.getUrl('initialPage'));
+  //       resolve();
+  //     })
+  //     .catch(err => {
+  //       reject(err);
+  //     })
+    setToken('StaticTokenTest');
+    history.push('/home');
+    resolve();
+  }
+};
 
 export const isAuthenticated = () => {
-  // return getToken();
-  return true
+  return getToken();
 };
 
 // export const signOutAction = () => {
