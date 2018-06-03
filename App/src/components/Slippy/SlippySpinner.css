@@ -3,7 +3,7 @@
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  border: 8px solid;
+  border: 2px solid;
   border-color: var(--color-primary) var(--color-primary) transparent;
   animation: spin .8s linear infinite;
 }

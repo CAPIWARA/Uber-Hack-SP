@@ -1,7 +1,7 @@
 import './MainAside.css';
 import React from 'react';
 import {NavLink} from 'react-router-dom';
-import avatar from '../../assets/images/profile-image.jpeg';
+import LogoIcon from '../../assets/images/Logo-Icon.svg';
 import HomeIcon from '../../assets/icons/HomeIcon.svg';
 import HistoricoIcon from '../../assets/icons/HistoricoIcon.svg';
 import CalendarIcon from '../../assets/icons/calendar.svg';
@@ -12,7 +12,7 @@ const MainAside = ({children, ...props}) => {
 
   return (
     <aside className='MainAside'>
-      <img className='MainAside__avatar' src={avatar} alt="Avatar"/>
+      <img className='MainAside__logo' src={ LogoIcon } alt="Host a Bike"/>
 
       <nav className='MainMenu__nav'>
         <ul>

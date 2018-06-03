@@ -3,7 +3,13 @@
   width: 20px;
   height: 20px;
   border-radius: 50%;
+  background-color: var(--color-primary);
   box-shadow: 0 12px 16px rgba(69,91,99, .08);
+  cursor: pointer;
+}
+
+.LocationMarker--isCurrent {
+  background-color: var(--color-contrast);
 }
 
 .LocationMarker::before {

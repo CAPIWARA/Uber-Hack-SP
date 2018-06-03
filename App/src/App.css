@@ -2,8 +2,10 @@
   --font-size: 1.8rem;
   --font-family: 'Source Sans Pro', sans-serif;
   --color-typography-dark: #454F63;
-  --color-primary: #ed7c00;
+  --color-primary: #ED7C00;
   --color-primary-active: #ff8c00;
+  --color-contrast: #FFDA00;
+  --color-contrast-active: #FFC400;
   --color-dark-background: #292e44;
 }
 

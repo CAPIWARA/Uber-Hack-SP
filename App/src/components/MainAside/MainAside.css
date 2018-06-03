@@ -10,10 +10,8 @@
   color: #FFF;
 }
 
-.MainAside__avatar {
-  width: 48px;
+.MainAside__logo {
   margin: 10px;
-  border-radius: 12px;
 }
 
 .MainMenu__nav {

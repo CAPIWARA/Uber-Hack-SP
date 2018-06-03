@@ -1,9 +1,16 @@
 import './LocationMarker.css';
 import React from 'react';
 
-function LocationMarker ({ color = '#ED7C00',...props }) {
+function LocationMarker ({ id, isCurrent = false, onClick, ...props }) {
+  const classNames = ['LocationMarker'].concat(
+    isCurrent ? ['LocationMarker--isCurrent'] : []
+  ).join(' ');
+
   return (
-    <div className="LocationMarker" style={{ backgroundColor: color }}></div>
+    <div
+      className={ classNames }
+      onClick={ () => onClick && onClick(id) }
+    ></div>
   );
 }
 

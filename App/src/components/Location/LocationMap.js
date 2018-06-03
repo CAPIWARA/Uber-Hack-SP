@@ -35,7 +35,7 @@ class LocationMap extends Component {
         // defaultCenter={ center }
         defaultZoom={ 14 }
       >
-        <LocationMarker { ...center } color="#FFDA00" />
+        <LocationMarker { ...center } isCurrent />
 
         {
           this.props.establishments.map((establishment) => (
