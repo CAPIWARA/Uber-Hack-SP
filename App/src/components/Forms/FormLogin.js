@@ -1,6 +1,7 @@
 import React from 'react'
 import {Field, reduxForm} from 'redux-form'
 import {renderField} from "../FormRenders/renderField";
+import SlippyButton from '../Slippy/SlippyButton'
 
 const validate = values => {
   const requiredMsg = "Este campo é obrigatório";
@@ -27,9 +28,9 @@ function FormLogin(props) {
       <Field name="email" type="email" component={renderField} label="E-mail" />
       <Field name="password" type="password" component={renderField} label="Senha" />
 
-      <button type='submit' disabled={submitting}>
-        {submitting ? 'Enviando' : 'Enviar'}
-      </button>
+      <SlippyButton type='submit' disabled={submitting}>
+        {submitting ? 'Efetuando Login' : 'Login'}
+      </SlippyButton>
     </form>
   )
 }

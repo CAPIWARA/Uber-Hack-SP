@@ -11,7 +11,7 @@ const SlippyButton = ({ icon = null, to = null, children, ...props }) => {
       {
         icon && (
           <span className="SlippyButton__icon">
-            <img className="SlippyButton__image" src={icon} />
+            <img className="SlippyButton__image" src={icon} alt={children} />
           </span>
         )
       }

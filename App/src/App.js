@@ -8,6 +8,8 @@ import ScrollToTop from './helpers/ScrollToTop';
 import Login from './views/LoginView';
 import NotFound from './views/NotFound';
 import Home from "./views/Home";
+import Estabelecimento from "./views/EstabelecimentoView";
+import MainAside from "./components/MainAside/MainAside";
 
 const PrivateRoute = ({children}) => (
   <Route render={props => (
@@ -46,12 +48,19 @@ class App extends Component {
             <Route exact path='/' component={Login}/>
 
             <PrivateRoute>
-              <Switch>
 
-                <Route exact path='/home' component={Home}/>
+              <div style={{width:'100vw', height:'100vh', display:'flex', flexDirection:'row'}}>
+                <MainAside/>
 
-                <Route component={NotFound}/>
-              </Switch>
+                <section style={{flex:'1', height:'100vh', overflow:'auto'}}>
+
+                  <Switch>
+                    <Route exact path='/home' component={Home}/>
+                    <Route exact path='/estabelecimento/:id' component={Estabelecimento}/>
+                    <Route component={NotFound}/>
+                  </Switch>
+                </section>
+              </div>
             </PrivateRoute>
           </Switch>
 

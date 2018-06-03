@@ -1,0 +1,40 @@
+:root {
+  --background-primary: #2A2E43;
+  --background-secondary: #454F63;
+}
+
+.MainAside {
+  width: 68px;
+  height: 100vh;
+  background: var(--background-primary);
+  color: #FFF;
+}
+
+.MainAside__avatar {
+  width: 48px;
+  margin: 10px;
+  border-radius: 12px;
+}
+
+.MainMenu__nav {
+  margin-top: 6px;
+}
+
+.MainAside__linkLine {
+  width: 100%;
+  border-bottom: 1px solid var(--background-secondary);
+}
+
+.MainAside__link {
+  display: flex;
+  padding: 24px;
+}
+
+.MainAside__link:active, .MainAside__link.active {
+  background:var(--background-secondary);
+}
+
+.MainAside__linkIco {
+  width: 20px;
+  height: 20px;
+}

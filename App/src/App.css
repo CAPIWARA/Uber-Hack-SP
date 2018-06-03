@@ -19,3 +19,5 @@ body {
   font-size: var(--font-size);
   font-family: var(--font-family);
 }
+
+ul, li {list-style: none;}
