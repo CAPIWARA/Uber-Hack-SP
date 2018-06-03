@@ -12,7 +12,7 @@ import SlippyModal from "../Slippy/SlippyModal";
 class Estabelecimento extends Component {
   constructor() {
     super();
-    this.state = {modal: false}
+    this.state = {isModalOpen: false}
   }
 
   render() {
@@ -33,7 +33,7 @@ class Estabelecimento extends Component {
 
 
           <SlippyButton onClick={() => {
-            this.setState({modal: true})
+            this.setState({isModalOpen: true})
           }}>
             AGENDAR
           </SlippyButton>
@@ -69,8 +69,8 @@ class Estabelecimento extends Component {
           </section>
         </section>
 
-        {this.state.modal && (
-          <SlippyModal title="Agendamento">
+        {this.state.isModalOpen && (
+          <SlippyModal title="Agendamento" closeModal={()=>{this.setState({isModalOpen: false})}}>
 
             <div className="inputContainer">
               <label>
@@ -86,7 +86,7 @@ class Estabelecimento extends Component {
             </div>
 
             <SlippyButton onClick={() => {
-              this.setState({modal: false})
+              this.setState({isModalOpen: false})
             }}>
               AGENDAR
             </SlippyButton>

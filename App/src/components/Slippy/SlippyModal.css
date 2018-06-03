@@ -7,15 +7,24 @@
   top: 0;
   z-index: 100;
   background: rgba(0, 0, 0, 0.8);
-  display: flex;
-  justify-content: center;
-  align-items: center;
 
   -webkit-animation: fadein .4s; /* Safari, Chrome and Opera > 12.1 */
   -moz-animation: fadein .4s; /* Firefox < 16 */
   -ms-animation: fadein .4s; /* Internet Explorer */
   -o-animation: fadein .4s; /* Opera < 12.1 */
   animation: fadein .4s;
+}
+
+.SlippyModal__masterContainer {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .SlippyModal__container {
@@ -29,6 +38,7 @@
   -ms-animation: scalein .4s; /* Internet Explorer */
   -o-animation: scalein .4s; /* Opera < 12.1 */
   animation: scalein .4s;
+  z-index:101;
 }
 
 .SlippyModal__title {
