@@ -23,6 +23,10 @@ export default class ProfileView extends Component {
             <h2>8</h2>
             <h3>Pontos</h3>
           </div>
+          <div>
+            <h2>4,6</h2>
+            <h3>Nota</h3>
+          </div>
         </section>
 
         <section className="Profile__infos">
