@@ -31,14 +31,33 @@
   width: 80vw;
   background: #FFF;
   border-radius: 5px;
-  padding:20px;
+  padding: 20px;
+  position: relative;
 
   -webkit-animation: scalein .4s; /* Safari, Chrome and Opera > 12.1 */
   -moz-animation: scalein .4s; /* Firefox < 16 */
   -ms-animation: scalein .4s; /* Internet Explorer */
   -o-animation: scalein .4s; /* Opera < 12.1 */
   animation: scalein .4s;
-  z-index:101;
+  z-index: 101;
+}
+
+.SlippyModal__closeBtn {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  top: -15px;
+  right: -15px;
+  font-weight: 600;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.SlippyModal__closeBtn img {
+  width:15px;
 }
 
 .SlippyModal__title {
