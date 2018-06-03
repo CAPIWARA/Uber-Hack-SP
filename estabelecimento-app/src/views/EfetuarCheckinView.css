@@ -1,0 +1,26 @@
+.EfetuarCheckin__table {
+  width: 100%;
+  text-align: left;
+  margin-top: 20px;
+}
+
+.EfetuarCheckin__table thead {
+  background: rgba(237, 124, 0, 0.4);
+}
+
+.EfetuarCheckin__table td, .EfetuarCheckin__table th {
+  padding:10px;
+}
+
+.EfetuarCheckin__table tbody tr:nth-of-type(2n-1){
+  background: rgba(237, 124, 0, 0.1);
+}
+
+.EfetuarCheckin__table td button {
+  color:#fff;
+  border-radius: 5px;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+  background:#ed7c00;
+}

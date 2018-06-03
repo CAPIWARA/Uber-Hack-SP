@@ -29,6 +29,7 @@
 
 .SlippyModal__container {
   width: 80vw;
+  max-width:400px;
   background: #FFF;
   border-radius: 5px;
   padding: 20px;
