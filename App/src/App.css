@@ -1,6 +1,8 @@
 :root {
   --font-size: 1.8rem;
   --font-family: 'Source Sans Pro', sans-serif;
+  --color-primary: #665EFF;
+  --color-primary-active: #4A43C5;
 }
 
 * {

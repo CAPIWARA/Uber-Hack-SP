@@ -4,7 +4,7 @@
   height: 80px;
   border-radius: 50%;
   border: 8px solid;
-  border-color: var(--color-primary) transparent var(--color-primary);
+  border-color: var(--color-primary) var(--color-primary) transparent;
   animation: spin .8s linear infinite;
 }
 

@@ -55,4 +55,49 @@ function clearWatcher (watcher) {
   window.clearInterval(watcher);
 }
 
-export { initialize, getPosition, watchPosition, clearWatcher };
+/**
+ * Modelo de localidade.
+ * @typedef {Object} Location
+ * @property {string} id
+ * @property {string} address
+ * @property {number} latitude
+ * @property {number} longitude
+ */
+
+/**
+ * Transforma um retorno de geolocalização numa localidade.
+ * @param {Object} geolocation
+ * @returns {Location}
+ */
+function toLocation (geolocation) {
+  return {
+    id: geolocation.place_id,
+    address: geolocation.formatted_address,
+    latitude: geolocation.geometry.location.lat,
+    longitude: geolocation.geometry.location.lng
+  };
+}
+
+/**
+ * Busca localidades por um endereço.
+ * @param {string} address
+ * @returns {Promise.<Location[]>}
+ */
+async function getLocationsByAddress (address) {
+  const key = 'AIzaSyCf1IZBBiC3tgQfMeDFItoe1eKeMYgFiYw';
+  const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${address.replace(/\s/g, '+')}&key=${key}`;
+  const response = await fetch(url, {
+    mode: 'GET'
+  });
+  const { results } = await response.json();
+  const locations = results.map(toLocation);
+  return locations;
+}
+
+export {
+  initialize,
+  getPosition,
+  clearWatcher,
+  watchPosition,
+  getLocationsByAddress
+};

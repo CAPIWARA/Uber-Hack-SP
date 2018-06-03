@@ -1,8 +1,3 @@
-:root {
-  --color-primary: #665EFF;
-  --color-primary-active: #4A43C5;
-}
-
 .SlippyButton {
   box-sizing: border-box;
   display: block;
@@ -17,13 +12,6 @@
               background-color .3s ease;
 }
 
-.SlippyButton:active {
-  background-color: var(--color-primary-active);
-  transform: scale(.95);
-  transition: transform        .05s ease-in,
-              background-color .05s ease-in;
-}
-
 button.SlippyButton {
   border: 0 none transparent;
   background-image: none;
@@ -31,6 +19,24 @@ button.SlippyButton {
 
 a.SlippyButton {
   text-decoration: none;
+}
+
+.SlippyButton__icon {
+  width: 18px;
+  height: 18px;
+}
+
+.SlippyButton__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.SlippyButton:active {
+  background-color: var(--color-primary-active);
+  transform: scale(.95);
+  transition: transform        .05s ease-in,
+              background-color .05s ease-in;
 }
 
 .SlippyButton__text {
@@ -41,3 +47,14 @@ a.SlippyButton {
   letter-spacing: 1px;
   color: #FFFFFF;
 }
+
+.SlippyButton--isOnlyIcon {
+  width: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.SlippyButton--isOnlyIcon > .SlippyButton__icon {
+  display: block;
+}
+
