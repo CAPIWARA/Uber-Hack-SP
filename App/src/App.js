@@ -49,6 +49,7 @@ class App extends Component {
 
             <PrivateRoute>
 
+
               <div style={{width:'100vw', height:'100vh', display:'flex', flexDirection:'row'}}>
                 <MainAside/>
 
