@@ -1,0 +1,72 @@
+.SlippyButton {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  height: 52px;
+  line-height: 52px;
+  background-color: var(--color-primary);
+  border-radius: 12px;
+  text-align: center;
+  outline: none;
+  transition: transform        .3s ease-out,
+              background-color .3s ease;
+}
+
+button.SlippyButton {
+  border: 0 none transparent;
+  background-image: none;
+}
+
+a.SlippyButton {
+  text-decoration: none;
+}
+
+.SlippyButton__icon {
+  width: 18px;
+  height: 18px;
+}
+
+.SlippyButton__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.SlippyButton:active {
+  background-color: var(--color-primary-active);
+  transform: scale(.95);
+  transition: transform        .05s ease-in,
+              background-color .05s ease-in;
+}
+
+.SlippyButton__text {
+  line-height: 1;
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #FFFFFF;
+}
+
+.SlippyButton--isOnlyIcon {
+  width: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.SlippyButton--isOnlyIcon .SlippyButton__icon {
+  display: block;
+}
+
+.SlippyButton--isDisabled {
+  pointer-events: none;
+  background-color: rgba(120, 132, 158, .16);
+}
+
+.SlippyButton--isDisabled .SlippyButton__text {
+  color: var(--color-typography-dark);
+}
+
+.SlippyButton--isDisabled .SlippyButton__image {
+  filter: invert(1);
+}
