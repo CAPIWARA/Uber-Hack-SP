@@ -20,7 +20,7 @@ const MainAside = ({children, ...props}) => {
           </li>
 
           <li className='MainAside__linkLine'>
-            <Link to='/home' className='MainAside__link'>
+            <Link to='/estabelecimento/123' className='MainAside__link'>
               <img src={HistoricoIcon} alt="Histórico" className='MainAside__linkIco'/>
             </Link>
           </li>
