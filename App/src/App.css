@@ -27,3 +27,15 @@ ul,
 li {
   list-style: none;
 }
+
+.inputContainer {
+  margin-bottom: 15px;
+}
+
+.defaultInput {
+  width:100%;
+  border:1px solid #ccc;
+  padding:5px 10px;
+  border-radius:10px;
+  background:#fff;
+}
