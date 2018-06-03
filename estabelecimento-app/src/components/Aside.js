@@ -8,12 +8,14 @@ export default class Aside extends Component {
         <nav>
           <ul>
             <li>
-              <NavLink to='/efetuar-checkin' exact>Efetuar Check-in</NavLink>
+              <NavLink to='/' exact>Reservas</NavLink>
             </li>
             <li>
-              <NavLink to='/configuracoes' exact>Configurações</NavLink>
+              <NavLink to='/historico' exact>Historico de reservas</NavLink>
             </li>
-
+            <li>
+              <NavLink to='/configuracoes' exact>Configurar disponibilidade</NavLink>
+            </li>
           </ul>
         </nav>
       </aside>
