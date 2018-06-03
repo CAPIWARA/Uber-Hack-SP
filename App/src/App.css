@@ -1,6 +1,7 @@
 :root {
   --font-size: 1.8rem;
   --font-family: 'Source Sans Pro', sans-serif;
+  --color-typography-dark: #454F63;
   --color-primary: #665EFF;
   --color-primary-active: #4A43C5;
 }
@@ -22,8 +23,10 @@ body {
   font-family: var(--font-family);
 }
 
-ul, li {list-style: none;}
-
+ul,
+li {
+  list-style: none;
+}
 
 .inputContainer {
   margin-bottom: 15px;

@@ -1,0 +1,21 @@
+.LocationOptions {
+  position: absolute;
+  top: calc(100% - 15px);
+  width: 100%;
+  padding: 14px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 12px 16px rgba(69,91,99, .08),
+              0 -2px 16px rgba(69,91,99, .08);
+}
+
+.LocationOptions__option {
+  font-size: 1.4rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.LocationOptions__option + .LocationOptions__option {
+  margin-top: 10px;
+}
