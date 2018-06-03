@@ -1,6 +1,6 @@
 import './MainAside.css';
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 import avatar from '../../assets/images/profile-image.jpeg';
 import HomeIcon from '../../assets/icons/HomeIcon.svg';
 import HistoricoIcon from '../../assets/icons/HistoricoIcon.svg';
@@ -14,33 +14,33 @@ const MainAside = ({children, ...props}) => {
       <nav className='MainMenu__nav'>
         <ul>
           <li className='MainAside__linkLine'>
-            <Link to='/home' className='MainAside__link active'>
+            <NavLink to='/home' className='MainAside__link'>
               <img src={HomeIcon} alt="Home" className='MainAside__linkIco'/>
-            </Link>
+            </NavLink>
           </li>
 
           <li className='MainAside__linkLine'>
-            <Link to='/estabelecimento/123' className='MainAside__link'>
+            <NavLink to='/estabelecimento/123' className='MainAside__link'>
               <img src={HistoricoIcon} alt="Histórico" className='MainAside__linkIco'/>
-            </Link>
+            </NavLink>
           </li>
 
           <li className='MainAside__linkLine'>
-            <Link to='/home' className='MainAside__link'>
+            <NavLink to='/profile' className='MainAside__link'>
               <img src={HomeIcon} alt="Home" className='MainAside__linkIco'/>
-            </Link>
+            </NavLink>
           </li>
 
           <li className='MainAside__linkLine'>
-            <Link to='/home' className='MainAside__link'>
+            <NavLink to='/home' className='MainAside__link'>
               <img src={HistoricoIcon} alt="Histórico" className='MainAside__linkIco'/>
-            </Link>
+            </NavLink>
           </li>
 
           <li className='MainAside__linkLine'>
-            <Link to='/home' className='MainAside__link'>
+            <NavLink to='/home' className='MainAside__link'>
               <img src={HomeIcon} alt="Home" className='MainAside__linkIco'/>
-            </Link>
+            </NavLink>
           </li>
         </ul>
       </nav>

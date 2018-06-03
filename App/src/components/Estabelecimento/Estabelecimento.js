@@ -10,11 +10,19 @@ import SlippyButton from "../Slippy/SlippyButton";
 import SlippyModal from "../Slippy/SlippyModal";
 import SlippySpinner from "../Slippy/SlippySpinner";
 
-
 class Estabelecimento extends Component {
   constructor() {
     super();
-    this.state = {isModalAgendaOpen: false, isModalConfirmacao: false, isModalConfirmacaoOk: false}
+    this.state = {
+      isModalAgendaOpen: false,
+      isModalConfirmaPreco: false,
+      isModalAguardandoConfirmacao: false,
+      isModalConfirmacaoOk: false
+    }
+  }
+
+  componentDidMount() {
+    console.log(this.props.history)
   }
 
   render() {
@@ -87,20 +95,60 @@ class Estabelecimento extends Component {
               </label>
             </div>
 
+            <div className="inputContainer">
+              <label>
+                Permanência
+                <input type="time" className={"defaultInput"}/>
+              </label>
+            </div>
+
+            <div className="inputContainer">
+              <label>
+                Serviço
+                <select className={"defaultInput"}>
+                  <option value="">Selecione um serviço</option>
+                  <option value="bike">Local para guardar Bike</option>
+                  <option value="ducha">Local para tomar uma ducha</option>
+                  <option value="both">Ambos os serviços</option>
+                </select>
+              </label>
+            </div>
+
             <SlippyButton onClick={() => {
               this.setState({isModalAgendaOpen: false});
-              this.setState({isModalConfirmacao: true});
-
+              this.setState({isModalConfirmaPreco: true});
             }}>
               AGENDAR
             </SlippyButton>
           </SlippyModal>
         )}
 
-        {this.state.isModalConfirmacao && (
+
+        {this.state.isModalConfirmaPreco && (
+          <SlippyModal title="Confirmação do preço" canClose={true} closeModal={() => {
+            this.setState({isModalConfirmaPreco: false})
+          }}>
+
+            <div className="inputContaine" style={{textAlign: 'center', marginBottom: '20px'}}>
+              <b>Preço</b>
+              <p>R$ 9,50</p>
+            </div>
+
+            <SlippyButton onClick={() => {
+              this.setState({isModalConfirmaPreco: false});
+              this.setState({isModalAguardandoConfirmacao: true});
+
+            }}>
+              Confirmar
+            </SlippyButton>
+          </SlippyModal>
+        )}
+
+
+        {this.state.isModalAguardandoConfirmacao && (
           <SlippyModal title="Aguardando confirmação ..." closeModal={
             window.setTimeout(() => {
-              this.setState({isModalConfirmacao: false});
+              this.setState({isModalAguardandoConfirmacao: false});
               this.setState({isModalConfirmacaoOk: true})
             }, 1000)
           }>
@@ -113,10 +161,11 @@ class Estabelecimento extends Component {
 
         {this.state.isModalConfirmacaoOk && (
           <SlippyModal title="Confirmado com sucesso!" canClose={true} closeModal={() => {
-            this.setState({isModalConfirmacaoOk: false})
+            this.setState({isModalConfirmacaoOk: false});
+            this.props.history.push('/home')
           }}>
 
-            <img src={checkedIcon} alt="Success" style={{width:"100px", display:"block", margin:"0 auto"}}/>
+            <img src={checkedIcon} alt="Success" style={{width: "100px", display: "block", margin: "0 auto"}}/>
 
           </SlippyModal>
         )}
