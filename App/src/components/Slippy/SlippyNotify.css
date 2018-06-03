@@ -1,0 +1,46 @@
+.Notify {
+  align-self: flex-end;
+  width:100%;
+  background: var(--color-dark-background);
+  -webkit-border-radius: 8px 8px 0 0;
+  -moz-border-radius: 8px 8px 0 0;
+  border-radius: 8px 8px 0 0;
+  overflow: hidden;
+  animation: slideUp .3s;
+}
+
+.Notify__lineTop {
+  width:100%;
+  height:5px;
+  background: rgba(237,122,0,1);
+  background: -moz-linear-gradient(left, rgba(237,122,0,1) 0%, rgba(255,217,0,1) 100%);
+  background: -webkit-gradient(left top, right top, color-stop(0%, rgba(237,122,0,1)), color-stop(100%, rgba(255,217,0,1)));
+  background: -webkit-linear-gradient(left, rgba(237,122,0,1) 0%, rgba(255,217,0,1) 100%);
+  background: -o-linear-gradient(left, rgba(237,122,0,1) 0%, rgba(255,217,0,1) 100%);
+  background: -ms-linear-gradient(left, rgba(237,122,0,1) 0%, rgba(255,217,0,1) 100%);
+  background: linear-gradient(to right, rgba(237,122,0,1) 0%, rgba(255,217,0,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ed7a00', endColorstr='#ffd900', GradientType=1 );
+}
+
+.Notify__container {
+  color:#fff;
+  padding:20px 10px;
+}
+
+.Notify__container h3 {
+  font-size:.8em;
+}
+.Notify__container span {
+  font-size:.7em;
+}
+
+
+
+@keyframes slideUp {
+  from {
+    margin-bottom: -100px;
+  }
+  to {
+    margin-bottom: 0;
+  }
+}

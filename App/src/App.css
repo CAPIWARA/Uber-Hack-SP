@@ -4,6 +4,7 @@
   --color-typography-dark: #454F63;
   --color-primary: #ed7c00;
   --color-primary-active: #ff8c00;
+  --color-dark-background: #292e44;
 }
 
 * {
@@ -27,6 +28,9 @@ ul,
 li {
   list-style: none;
 }
+
+a, a:hover, a:active {
+  text-decoration: none;}
 
 .inputContainer {
   margin-bottom: 15px;

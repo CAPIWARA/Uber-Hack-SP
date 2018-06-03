@@ -6,6 +6,9 @@ import NotFound from './views/NotFound';
 import Home from "./views/Home";
 import Estabelecimento from "./views/EstabelecimentoView";
 import MainAside from "./components/MainAside/MainAside";
+import ProfileView from "./views/ProfileView";
+import AgendamentosView from "./views/AgendamentosView";
+import HistoricoAgendamentosView from "./views/HistoricoAgendamentosView";
 
 class App extends Component {
 
@@ -22,6 +25,10 @@ class App extends Component {
                 <Switch>
                   <Route exact path='/home' component={Home}/>
                   <Route exact path='/estabelecimento/:id' component={Estabelecimento}/>
+                  <Route exact path='/profile' component={ProfileView}/>
+                  <Route exact path='/agendamentos' component={AgendamentosView}/>
+                  <Route exact path='/historico' component={HistoricoAgendamentosView}/>
+
                   <Route component={NotFound}/>
                 </Switch>
               </section>
