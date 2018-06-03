@@ -58,6 +58,7 @@ export default class Home extends Component {
         <div/>
 
         <LocationMap
+          history={this.props.history}
           center={this.state.center}
           isLoading={this.state.isLoading}
           establishments={this.state.establishments}

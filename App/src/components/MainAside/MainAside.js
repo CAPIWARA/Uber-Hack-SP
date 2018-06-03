@@ -23,18 +23,6 @@ const MainAside = ({children, ...props}) => {
           </li>
 
           <li className='MainAside__linkLine'>
-            <NavLink to='/estabelecimento/123' className='MainAside__link'>
-              <img src={HistoricoIcon} alt="Histórico" className='MainAside__linkIco'/>
-            </NavLink>
-          </li>
-
-          <li className='MainAside__linkLine'>
-            <NavLink to='/profile' className='MainAside__link'>
-              <img src={UserIcon} alt="profile" className='MainAside__linkIco'/>
-            </NavLink>
-          </li>
-
-          <li className='MainAside__linkLine'>
             <NavLink to='/favoritos' className='MainAside__link'>
               <img src={FavoritesIcon} alt="favoritos" className='MainAside__linkIco'/>
             </NavLink>
@@ -49,6 +37,12 @@ const MainAside = ({children, ...props}) => {
           <li className='MainAside__linkLine'>
             <NavLink to='/historico' className='MainAside__link'>
               <img src={HistoricoIcon} alt="historico" className='MainAside__linkIco'/>
+            </NavLink>
+          </li>
+
+          <li className='MainAside__linkLine'>
+            <NavLink to='/profile' className='MainAside__link'>
+              <img src={UserIcon} alt="profile" className='MainAside__linkIco'/>
             </NavLink>
           </li>
         </ul>
