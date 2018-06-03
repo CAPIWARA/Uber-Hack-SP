@@ -43,7 +43,7 @@ class Estabelecimento extends Component {
           <SlippyButton onClick={() => {
             this.setState({isModalAgendaOpen: true})
           }}>
-            AGENDAR
+            RESERVAR
           </SlippyButton>
 
 
@@ -78,7 +78,7 @@ class Estabelecimento extends Component {
         </section>
 
         {this.state.isModalAgendaOpen && (
-          <SlippyModal title="Agendamento" canClose={true} closeModal={() => {
+          <SlippyModal title="Reserva" canClose={true} closeModal={() => {
             this.setState({isModalAgendaOpen: false})
           }}>
 

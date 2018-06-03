@@ -6,7 +6,7 @@ export default class HistoricoAgendamentosView extends Component {
   render() {
     return (
       <div className='Agendamentos'>
-        <h1>Historico de agendamentos</h1>
+        <h1>Historico de reservas</h1>
 
         <SlippyAgendamentoCard />
         <SlippyAgendamentoCard />

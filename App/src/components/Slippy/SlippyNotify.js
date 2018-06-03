@@ -6,7 +6,7 @@ const SlippyNotify = ({title, text, children, ...props}) => {
   return (
     <div className="Notify">
 
-      <Link to='/home'>
+      <Link to='/reservas'>
         <div className="Notify__lineTop"/>
         <div className="Notify__container">
           <h3>{title}</h3>
