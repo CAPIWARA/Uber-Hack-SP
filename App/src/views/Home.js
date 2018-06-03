@@ -1,53 +1,42 @@
+import './Home.css';
 import React, {Component} from 'react';
-import SlippyButton from '../components/Slippy/SlippyButton';
-import SlippySpinner from '../components/Slippy/SlippySpinner';
-import SearchIcon from '../assets/icons/search.png';
-import { getLocationsByAddress, initialize, getPosition } from '../services/geolocation';
+import * as geolocation from '../services/geolocation';
 import LocationForm from '../components/Location/LocationForm';
-
-function toCenter (location) {
-  return {
-    lat: location.latitude,
-    lng: location.longitude
-  };
-}
+import LocationMap from '../components/Location/LocationMap';
 
 export default class Home extends Component {
   state = {
-    address: '',
     center: null,
-    isLoading: false,
-    locations: []
+    isLoading: false
   };
 
-  search = async () => {
-    this.setState({ isLoading: true });
+  constructor (props) {
+    super (props);
+
+    this.initialize();
+  }
+
+  async initialize () {
+    await geolocation.initialize();
+
     this.setState({
-      isLoading: false,
-      locations: await getLocationsByAddress(this.state.address)
+      center: await geolocation.getPosition(),
+      isLoading: false
     });
-  };
-
-  setCenter = (location) => {
-    this.setState({
-      center: toCenter(location),
-      locations: []
-    });
-  };
-
-
+  }
 
   render() {
-    if (this.state.isLoading)
-      return (
-        <div>
-          <SlippySpinner />
-        </div>
-      );
-
     return (
-      <div style={{ width: '100%', height: '100vh' }}>
-        <LocationForm />
+      <div className="Home">
+        <LocationForm
+          className="Home__form"
+          onChange={ (center) => this.setState({ center }) }
+        />
+
+        <LocationMap
+          center={ this.state.center }
+          isLoading={ this.state.isLoading }
+        />
       </div>
     );
   }

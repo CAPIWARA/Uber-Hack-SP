@@ -44,9 +44,12 @@ class LocationForm extends Component {
 
   render () {
     const isOptionsVisible = !!(this.state.locations.length);
+    const classNames = ['LocationForm'].concat(
+      this.props.className ? [this.props.className] : []
+    ).join(' ');
 
     return (
-      <form className="LocationForm" onSubmit={ this.onSubmit }>
+      <form className={classNames} onSubmit={ this.onSubmit }>
         <div className="LocationForm__search">
           <img className="LocationForm__icon" src={ LocationIcon } alt="Ícone de Pesquisa" />
           <span className="LocationForm__pipe"></span>
