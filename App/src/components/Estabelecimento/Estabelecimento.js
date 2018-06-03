@@ -17,12 +17,54 @@ class Estabelecimento extends Component {
       isModalAgendaOpen: false,
       isModalConfirmaPreco: false,
       isModalAguardandoConfirmacao: false,
-      isModalConfirmacaoOk: false
-    }
+      isModalConfirmacaoOk: false,
+      start: '',
+      time: '',
+      type: '',
+      permanence: '',
+      finish: '',
+      finishTime: '',
+    };
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+
   }
 
   componentDidMount() {
     console.log(this.props.history)
+  }
+
+
+  handleInputChange(event) {
+    const target = event.target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const name = target.name;
+
+    this.setState({
+      [name]: value
+    });
+  }
+
+  handleSubmit(event) {
+    console.log(this.state);
+
+    fetch(`https://uber-hack-sp.firebaseio.com/reservations.json`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        establishment: 0,
+        user: 0,
+        start: `${this.state.start} ${this.state.time}`,
+        finish: `${this.state.finish} ${this.state.finishTime}`,
+        permanence: this.state.permanence,
+        type: this.state.type,
+        status: null,
+        check_in: null,
+        check_out: null,
+      })
+    });
   }
 
   render() {
@@ -85,36 +127,89 @@ class Estabelecimento extends Component {
             <div className="inputContainer">
               <label>
                 Data
-                <input type="date" className={"defaultInput"}/>
+                <input
+                  type="date"
+                  name='start'
+                  className={"defaultInput"}
+                  value={this.state.start}
+                  onChange={this.handleInputChange}
+                />
               </label>
             </div>
             <div className="inputContainer">
               <label>
                 Hora
-                <input type="time" className={"defaultInput"}/>
-              </label>
-            </div>
-
-            <div className="inputContainer">
-              <label>
-                Permanência
-                <input type="time" className={"defaultInput"}/>
+                <input
+                  type='time'
+                  name='time'
+                  className={"defaultInput"}
+                  value={this.state.time}
+                  onChange={this.handleInputChange}
+                />
               </label>
             </div>
 
             <div className="inputContainer">
               <label>
                 Serviço
-                <select className={"defaultInput"}>
+                <select className={"defaultInput"} value={this.state.type} name='type'
+                        onChange={this.handleInputChange}>
                   <option value="">Selecione um serviço</option>
-                  <option value="bike">Local para guardar Bike</option>
-                  <option value="ducha">Local para tomar uma ducha</option>
+                  <option value="rack">Local para guardar Bike</option>
+                  <option value="shower">Local para tomar uma ducha</option>
                   <option value="both">Ambos os serviços</option>
                 </select>
               </label>
             </div>
 
+            {(this.state.type === 'shower' || this.state.type === 'both') && (
+              <div className="inputContainer">
+                <label>
+                  Permanência na ducha
+                  <input
+                    type="time"
+                    className={"defaultInput"}
+                    name='permanence'
+                    value={this.state.permanence}
+                    onChange={this.handleInputChange}
+                  />
+                </label>
+              </div>
+            )}
+
+            {(this.state.type === 'rack' || this.state.type === 'both') && (
+              <div>
+                <div className="inputContainer">
+                  <label>
+                    Permanencia da bicicleta até
+                    <input
+                      type="date"
+                      className={"defaultInput"}
+                      name='finish'
+                      value={this.state.finish}
+                      onChange={this.handleInputChange}
+                    />
+                  </label>
+                </div>
+
+                <div className="inputContainer">
+                  <label>
+                    às
+                    <input
+                      type="time"
+                      className={"defaultInput"}
+                      name='finishTime'
+                      value={this.state.finishTime}
+                      onChange={this.handleInputChange}
+                    />
+                  </label>
+                </div>
+              </div>
+            )}
+
+
             <SlippyButton onClick={() => {
+              this.handleSubmit();
               this.setState({isModalAgendaOpen: false});
               this.setState({isModalConfirmaPreco: true});
             }}>
@@ -150,7 +245,7 @@ class Estabelecimento extends Component {
             window.setTimeout(() => {
               this.setState({isModalAguardandoConfirmacao: false});
               this.setState({isModalConfirmacaoOk: true})
-            }, 1000)
+            }, 3000)
           }>
 
             <SlippySpinner style={{margin: "0 auto"}}/>

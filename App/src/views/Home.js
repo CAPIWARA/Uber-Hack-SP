@@ -9,13 +9,25 @@ export default class Home extends Component {
   state = {
     center: null,
     isLoading: false,
-    establishments: []
+    establishments: [],
+    reservas: []
   };
 
   constructor(props) {
     super(props);
 
     this.initialize();
+  }
+
+  componentDidMount() {
+    fetch('https://us-central1-uber-hack-sp.cloudfunctions.net/reservations?user=0', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(res => res.json())
+      .then(json => this.setState({reservas: Object.values(json)}))
   }
 
   async initialize() {
@@ -27,38 +39,37 @@ export default class Home extends Component {
   }
 
   setCenter = async (center) => {
-    this.setState({ isLoading: true });
+    this.setState({isLoading: true});
     this.setState({
       center,
       isLoading: false,
       establishments: await geolocation.getNearbyEstablishments(center)
     });
-  }
+  };
 
   render() {
     return (
       <div className="Home">
         <LocationForm
           className="Home__form"
-          onChange={ this.setCenter }
+          onChange={this.setCenter}
         />
 
-        {/*
-          Quando o notify for verdadeiro, adicionar uma div vazia
-          Por conta do flex, jutify conetnt
-        */}
-        <div></div>
+        <div/>
 
         <LocationMap
-          center={ this.state.center }
-          isLoading={ this.state.isLoading }
-          establishments={ this.state.establishments }
+          center={this.state.center}
+          isLoading={this.state.isLoading}
+          establishments={this.state.establishments}
         />
 
-        <SlippyNotify
-          title="1 reseva ativa"
-          text="Clique aqui para ver mais informações"
-        />
+        {this.state.reservas.length > 0 ? (
+          <SlippyNotify
+            title={`${this.state.reservas.length} reseva ativa`}
+            text="Clique aqui para ver mais informações"
+          />
+        ) : (<div/>)}
+
       </div>
     );
   }
