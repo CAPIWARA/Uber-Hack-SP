@@ -1,11 +1,13 @@
 import GoogleMap from 'google-map-react';
 import React, { Component } from 'react';
 import SlippySpinner from '../Slippy/SlippySpinner';
+import LocationMarker from './LocationMarker';
 
 class LocationMap extends Component {
-  defaultProps = {
+  static defaultProps = {
     center: null,
-    isLoading: true
+    isLoading: true,
+    establishments: []
   };
 
   toCenter (location) {
@@ -21,18 +23,28 @@ class LocationMap extends Component {
         <SlippySpinner />
       );
 
+    const center = this.toCenter(this.props.center);
 
     return (
       <GoogleMap
-        center={ this.toCenter(this.props.center) }
+        center={ center }
         bootstrapURLKeys={{
           key: 'AIzaSyCf1IZBBiC3tgQfMeDFItoe1eKeMYgFiYw',
           language: 'pt-BR'
         }}
-        defaultCenter={ this.toCenter(this.props.center) }
+        // defaultCenter={ center }
         defaultZoom={ 14 }
       >
+        <LocationMarker { ...center } color="#FFDA00" />
 
+        {
+          this.props.establishments.map((establishment) => (
+            <LocationMarker
+              key={establishment.id}
+              {...this.toCenter(establishment)}
+            />
+          ))
+        }
       </GoogleMap>
     );
   }

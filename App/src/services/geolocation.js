@@ -1,4 +1,5 @@
 import sleep from '../helpers/sleep';
+import QueryString from 'qs';
 
 const SECOND = 1000;
 
@@ -35,27 +36,6 @@ async function initialize () {
 }
 
 /**
- * Assiste a geolocalização do usuário.
- * @param {function(position: Position)} fn Função executada no intervalo definido.
- * @param {number} time Intervalo das execuções, em ms.
- * @returns {number} ID do watcher. Deve ser usado para finalizar o watcher.
- */
-function watchPosition (fn, time = 8 * SECOND) {
-  return window.setInterval(async () => {
-    const position = await getPosition();
-    return fn(position);
-  }, time);
-}
-
-/**
- * Cancela o watcher pelo ID.
- * @param {number} watcher ID do watcher que deve ser finalizado.
- */
-function clearWatcher (watcher) {
-  window.clearInterval(watcher);
-}
-
-/**
  * Modelo de localidade.
  * @typedef {Object} Location
  * @property {string} id
@@ -84,20 +64,38 @@ function toLocation (geolocation) {
  * @returns {Promise.<Location[]>}
  */
 async function getLocationsByAddress (address) {
-  const key = 'AIzaSyCf1IZBBiC3tgQfMeDFItoe1eKeMYgFiYw';
-  const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${address.replace(/\s/g, '+')}&key=${key}`;
-  const response = await fetch(url, {
-    mode: 'GET'
+  const url = 'https://maps.googleapis.com/maps/api/geocode/json?'+ QueryString.stringify({
+    address,
+    key: 'AIzaSyCf1IZBBiC3tgQfMeDFItoe1eKeMYgFiYw',
   });
+
+  const response = await fetch(url, { method: 'GET' });
   const { results } = await response.json();
   const locations = results.map(toLocation);
   return locations;
 }
 
+/**
+ * Get nearby establishments.
+ * @param {Position} position
+ * @returns {Array.<Object>}
+ */
+async function getNearbyEstablishments ({ latitude, longitude }) {
+  const url = 'https://us-central1-uber-hack-sp.cloudfunctions.net/search?' + QueryString.stringify({
+    latitude,
+    longitude,
+    around: 3, // Kilometros
+  });
+
+  const response = await fetch(url, { method: 'GET' });
+
+  const establishments = await response.json();
+  return establishments;
+}
+
 export {
   initialize,
   getPosition,
-  clearWatcher,
-  watchPosition,
-  getLocationsByAddress
+  getLocationsByAddress,
+  getNearbyEstablishments
 };

@@ -7,7 +7,8 @@ import LocationMap from '../components/Location/LocationMap';
 export default class Home extends Component {
   state = {
     center: null,
-    isLoading: false
+    isLoading: false,
+    establishments: []
   };
 
   constructor (props) {
@@ -19,9 +20,17 @@ export default class Home extends Component {
   async initialize () {
     await geolocation.initialize();
 
+    const center = await geolocation.getPosition();
+
+    await this.setCenter(center);
+  }
+
+  setCenter = async (center) => {
+    this.setState({ isLoading: true });
     this.setState({
-      center: await geolocation.getPosition(),
-      isLoading: false
+      center,
+      isLoading: false,
+      establishments: await geolocation.getNearbyEstablishments(center)
     });
   }
 
@@ -30,12 +39,13 @@ export default class Home extends Component {
       <div className="Home">
         <LocationForm
           className="Home__form"
-          onChange={ (center) => this.setState({ center }) }
+          onChange={ this.setCenter }
         />
 
         <LocationMap
           center={ this.state.center }
           isLoading={ this.state.isLoading }
+          establishments={ this.state.establishments }
         />
       </div>
     );

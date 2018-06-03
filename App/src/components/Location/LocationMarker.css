@@ -1,0 +1,19 @@
+.LocationMarker {
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  box-shadow: 0 12px 16px rgba(69,91,99, .08);
+}
+
+.LocationMarker::before {
+  position: absolute;
+  display: block;
+  width: 8px;
+  height: 8px;
+  margin: 6px;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  box-shadow: 0 12px 16px rgba(69,91,99, .08);
+  content: '';
+}
