@@ -1,28 +1,154 @@
-.App {
-  text-align: center;
+:root {
+  --font-size: 1.8rem;
+  --font-family: 'Source Sans Pro', sans-serif;
+  --color-primary: #665EFF;
+  --color-primary-active: #4A43C5;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+html {
+  height: 100%;
+  font-size: 62.5%;
 }
 
-.App-title {
-  font-size: 1.5em;
+body {
+  height: 100%;
+  font-size: var(--font-size);
+  font-family: var(--font-family);
 }
 
-.App-intro {
-  font-size: large;
+ul, li {
+  list-style: none;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.dFlex {
+  display: flex
 }
+
+.dashHeader {
+  height: 50px;
+  width: 100%;
+  background: #ed7c00;
+}
+
+.dashAside {
+  flex: 1;
+  height: calc(100vh - 50px);
+  min-width: 280px;
+  background: #2b2f43;
+  overflow: auto;
+
+  -webkit-box-shadow: 2px 0 3px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 2px 0 3px rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 0 3px rgba(0, 0, 0, 0.2);
+}
+
+.dashAside nav {
+  margin-top: 50px;
+}
+
+.dashAside nav li a {
+  display: block;
+  cursor: pointer;
+  padding: 10px;
+  color: #fff;
+}
+
+.dashAside nav li a:hover {
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.dashAside nav li a.active {
+  background: rgba(255, 255, 255, 0.2);
+  border-left: 3px solid #ed7c00
+}
+
+
+
+
+
+.dashCenterContainer {
+  flex: 3;
+  height: calc(100vh - 50px);
+  overflow: auto;
+  padding:20px;
+}
+
+.dashCenterContainer h1 {
+  border-bottom: 1px solid #ccc;
+}
+
+
+
+
+
+
+.dashSolicitacoesPendentes {
+  flex: 1;
+  height: calc(100vh - 50px);
+  min-width: 280px;
+  background: #e5e5e5;
+  overflow: auto;
+  padding: 10px;
+
+  -webkit-box-shadow: -2px 0 3px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: -2px 0 3px rgba(0, 0, 0, 0.2);
+  box-shadow: -2px 0 3px rgba(0, 0, 0, 0.2);
+}
+
+.solicitacaoCard {
+  padding: 10px;
+  background: #fff;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+.solicitacaoCardContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.solicitacaoCardContainer img {
+  width: 60px;
+  height: 60px;
+  margin-right: 15px;
+  border-radius:10px;
+}
+
+.solicitacaoCardContainer div {
+  flex:1;
+}
+
+.solicitacaoCardButtons {
+  display:flex;
+  margin-top:10px;
+}
+
+.solicitacaoCardButtons button{
+  flex:1;
+  font-size:18px;
+  border-radius:10px;
+  padding:5px 0;
+  background:#fff;
+  border:1px solid #ccc;
+  cursor: pointer;
+}
+
+.cancelButton {
+  margin-right: 10px;
+}
+
+.acceptButton {
+  background: #04dc00 !important;
+  border:1px solid #04ad00 !important;
+  color:#fff;
+}
+
+
+
