@@ -5,19 +5,19 @@ import avatar from '../../assets/images/profile-image.jpeg';
 import bikeIcon from '../../assets/icons/bike-parking.svg';
 import showerIcon from '../../assets/icons/showerIcon.svg';
 import starIcon from '../../assets/icons/star.svg';
+import checkedIcon from '../../assets/icons/checked.svg';
 import SlippyButton from "../Slippy/SlippyButton";
 import SlippyModal from "../Slippy/SlippyModal";
+import SlippySpinner from "../Slippy/SlippySpinner";
 
 
 class Estabelecimento extends Component {
   constructor() {
     super();
-    this.state = {isModalOpen: false}
+    this.state = {isModalAgendaOpen: false, isModalConfirmacao: false, isModalConfirmacaoOk: false}
   }
 
   render() {
-    const {children} = this.props;
-
     return (
       <div>
         <section className="Estabelecimento__banner" style={{background: `url(${banner}) center / cover`}}>
@@ -33,7 +33,7 @@ class Estabelecimento extends Component {
 
 
           <SlippyButton onClick={() => {
-            this.setState({isModalOpen: true})
+            this.setState({isModalAgendaOpen: true})
           }}>
             AGENDAR
           </SlippyButton>
@@ -69,8 +69,10 @@ class Estabelecimento extends Component {
           </section>
         </section>
 
-        {this.state.isModalOpen && (
-          <SlippyModal title="Agendamento" closeModal={()=>{this.setState({isModalOpen: false})}}>
+        {this.state.isModalAgendaOpen && (
+          <SlippyModal title="Agendamento" canClose={true} closeModal={() => {
+            this.setState({isModalAgendaOpen: false})
+          }}>
 
             <div className="inputContainer">
               <label>
@@ -86,10 +88,36 @@ class Estabelecimento extends Component {
             </div>
 
             <SlippyButton onClick={() => {
-              this.setState({isModalOpen: false})
+              this.setState({isModalAgendaOpen: false});
+              this.setState({isModalConfirmacao: true});
+
             }}>
               AGENDAR
             </SlippyButton>
+          </SlippyModal>
+        )}
+
+        {this.state.isModalConfirmacao && (
+          <SlippyModal title="Aguardando confirmação ..." closeModal={
+            window.setTimeout(() => {
+              this.setState({isModalConfirmacao: false});
+              this.setState({isModalConfirmacaoOk: true})
+            }, 1000)
+          }>
+
+            <SlippySpinner style={{margin: "0 auto"}}/>
+
+
+          </SlippyModal>
+        )}
+
+        {this.state.isModalConfirmacaoOk && (
+          <SlippyModal title="Confirmado com sucesso!" canClose={true} closeModal={() => {
+            this.setState({isModalConfirmacaoOk: false})
+          }}>
+
+            <img src={checkedIcon} alt="Success" style={{width:"100px", display:"block", margin:"0 auto"}}/>
+
           </SlippyModal>
         )}
       </div>
