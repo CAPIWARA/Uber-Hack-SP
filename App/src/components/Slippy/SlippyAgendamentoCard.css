@@ -1,0 +1,21 @@
+.Agendamentos__card {
+  padding: 10px;
+  background: #F7F7FA;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.Agendamentos__card h2 {
+  font-size: 1em;
+}
+
+.Agendamentos__card p {
+  font-size: .8em;
+}
+
+.Agendamentos__card span {
+  margin-top: 10px;
+  font-size: .7em;
+}

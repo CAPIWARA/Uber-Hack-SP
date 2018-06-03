@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import * as geolocation from '../services/geolocation';
 import LocationForm from '../components/Location/LocationForm';
 import LocationMap from '../components/Location/LocationMap';
+import SlippyNotify from "../components/Slippy/SlippyNotify";
 
 export default class Home extends Component {
   state = {
@@ -10,13 +11,13 @@ export default class Home extends Component {
     isLoading: false
   };
 
-  constructor (props) {
-    super (props);
+  constructor(props) {
+    super(props);
 
     this.initialize();
   }
 
-  async initialize () {
+  async initialize() {
     await geolocation.initialize();
 
     this.setState({
@@ -30,12 +31,23 @@ export default class Home extends Component {
       <div className="Home">
         <LocationForm
           className="Home__form"
-          onChange={ (center) => this.setState({ center }) }
+          onChange={(center) => this.setState({center})}
         />
 
+        {/*
+          Quando o notify for verdadeiro, adicionar uma div vazia
+          Por conta do flex, jutify conetnt
+        */}
+        <div></div>
+
         <LocationMap
-          center={ this.state.center }
-          isLoading={ this.state.isLoading }
+          center={this.state.center}
+          isLoading={this.state.isLoading}
+        />
+
+        <SlippyNotify
+          title="1 agendamento ativo"
+          text="Clique aqui para ver mais informações"
         />
       </div>
     );

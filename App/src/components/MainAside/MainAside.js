@@ -32,14 +32,14 @@ const MainAside = ({children, ...props}) => {
           </li>
 
           <li className='MainAside__linkLine'>
-            <NavLink to='/home' className='MainAside__link'>
-              <img src={HistoricoIcon} alt="Histórico" className='MainAside__linkIco'/>
+            <NavLink to='/agendamentos' className='MainAside__link'>
+              <img src={HistoricoIcon} alt="agendamentos" className='MainAside__linkIco'/>
             </NavLink>
           </li>
 
           <li className='MainAside__linkLine'>
-            <NavLink to='/home' className='MainAside__link'>
-              <img src={HomeIcon} alt="Home" className='MainAside__linkIco'/>
+            <NavLink to='/historico' className='MainAside__link'>
+              <img src={HomeIcon} alt="historico" className='MainAside__linkIco'/>
             </NavLink>
           </li>
         </ul>
