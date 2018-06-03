@@ -27,7 +27,7 @@ class App extends Component {
                   <Route exact path='/estabelecimento/:id' component={Estabelecimento}/>
                   <Route exact path='/profile' component={ProfileView}/>
                   <Route exact path='/favoritos' component={FavoritosView}/>
-                  <Route exact path='/agendamentos' component={AgendamentosView}/>
+                  <Route exact path='/reservas' component={AgendamentosView}/>
                   <Route exact path='/historico' component={HistoricoAgendamentosView}/>
                   <Route component={NotFound}/>
                 </Switch>

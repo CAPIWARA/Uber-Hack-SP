@@ -41,7 +41,7 @@ const MainAside = ({children, ...props}) => {
           </li>
 
           <li className='MainAside__linkLine'>
-            <NavLink to='/agendamentos' className='MainAside__link'>
+            <NavLink to='/reservas' className='MainAside__link'>
               <img src={CalendarIcon} alt="agendamentos" className='MainAside__linkIco'/>
             </NavLink>
           </li>

@@ -6,10 +6,10 @@ export default class AgendamentosView extends Component {
   render() {
     return (
       <div className='Agendamentos'>
-        <h1>Meus agendamentos</h1>
+        <h1>Minhas reservas</h1>
 
         <SlippyAgendamentoCard />
-        
+
       </div>
     )
   }

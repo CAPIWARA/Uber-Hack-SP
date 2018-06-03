@@ -56,7 +56,7 @@ export default class Home extends Component {
         />
 
         <SlippyNotify
-          title="1 agendamento ativo"
+          title="1 reseva ativa"
           text="Clique aqui para ver mais informações"
         />
       </div>
