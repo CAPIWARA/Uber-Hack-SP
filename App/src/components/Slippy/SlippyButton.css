@@ -54,7 +54,19 @@ a.SlippyButton {
   padding-right: 16px;
 }
 
-.SlippyButton--isOnlyIcon > .SlippyButton__icon {
+.SlippyButton--isOnlyIcon .SlippyButton__icon {
   display: block;
 }
 
+.SlippyButton--isDisabled {
+  pointer-events: none;
+  background-color: rgba(120, 132, 158, .16);
+}
+
+.SlippyButton--isDisabled .SlippyButton__text {
+  color: var(--color-typography-dark);
+}
+
+.SlippyButton--isDisabled .SlippyButton__image {
+  filter: invert(1);
+}
