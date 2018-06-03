@@ -40,6 +40,7 @@ class LocationMap extends Component {
         {
           this.props.establishments.map((establishment) => (
             <LocationMarker
+              onClick={ () => this.props.history.push('/estabelecimento/123') }
               key={establishment.id}
               {...this.toCenter(establishment)}
             />
