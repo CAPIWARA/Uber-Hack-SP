@@ -1,101 +1,96 @@
 import React, {Component} from 'react';
 import './App.css';
-
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import avatar from './assets/images/profile-image.jpeg';
+import NotFound from "./views/NotFound";
+import Aside from "./components/Aside";
+import EfetuarCheckinView from "./views/EfetuarCheckinView";
 
 class App extends Component {
   render() {
     return (
-      <div>
+      <Router>
+        <div>
+          <header className="dashHeader">
+          </header>
 
-        <header className="dashHeader">
-        </header>
+          <div className="dFlex">
 
-        <div className="dFlex">
-          <aside className="dashAside">
-            <nav>
-              <ul>
-                <li>
-                  <a className="active">Agendamentos confirmados</a>
-                </li>
-                <li>
-                  <a>Configurações</a>
-                </li>
+            <Aside/>
 
-              </ul>
-            </nav>
-          </aside>
+            <section className="dashCenterContainer">
+              <Switch>
+                <Route exact path='/efetuar-checkin' component={EfetuarCheckinView}/>
 
-          <section className="dashCenterContainer">
-            <h1>Agendamentos confirmados</h1>
+                <Route component={NotFound}/>
+              </Switch>
+            </section>
 
+            <section className="dashSolicitacoesPendentes">
+              <article className="solicitacaoCard">
+                <div className="solicitacaoCardContainer">
+                  <img src={avatar} alt=""/>
 
-          </section>
-
-          <section className="dashSolicitacoesPendentes">
-            <article className="solicitacaoCard">
-              <div className="solicitacaoCardContainer">
-                <img src={avatar} alt=""/>
-
-                <div>
-                  <h3>Fulano</h3>
-                  <p>05/06/2018 às 09:45</p>
+                  <div>
+                    <h3>Fulano</h3>
+                    <p>05/06/2018 às 09:45</p>
+                  </div>
                 </div>
-              </div>
-              <div className="solicitacaoCardButtons">
-                <button className='cancelButton'>
-                  Recusar
-                </button>
+                <div className="solicitacaoCardButtons">
+                  <button className='cancelButton'>
+                    Recusar
+                  </button>
 
-                <button className='acceptButton'>
-                  Aceitar
-                </button>
-              </div>
-            </article>
-
-            <article className="solicitacaoCard">
-              <div className="solicitacaoCardContainer">
-                <img src={avatar} alt=""/>
-
-                <div>
-                  <h3>Fulano</h3>
-                  <p>05/06/2018 às 09:45</p>
+                  <button className='acceptButton'>
+                    Aceitar
+                  </button>
                 </div>
-              </div>
-              <div className="solicitacaoCardButtons">
-                <button className='cancelButton'>
-                  Recusar
-                </button>
+              </article>
 
-                <button className='acceptButton'>
-                  Aceitar
-                </button>
-              </div>
-            </article>
+              <article className="solicitacaoCard">
+                <div className="solicitacaoCardContainer">
+                  <img src={avatar} alt=""/>
 
-            <article className="solicitacaoCard">
-              <div className="solicitacaoCardContainer">
-                <img src={avatar} alt=""/>
-
-                <div>
-                  <h3>Fulano</h3>
-                  <p>05/06/2018 às 09:45</p>
+                  <div>
+                    <h3>Fulano</h3>
+                    <p>05/06/2018 às 09:45</p>
+                  </div>
                 </div>
-              </div>
-              <div className="solicitacaoCardButtons">
-                <button className='cancelButton'>
-                  Recusar
-                </button>
+                <div className="solicitacaoCardButtons">
+                  <button className='cancelButton'>
+                    Recusar
+                  </button>
 
-                <button className='acceptButton'>
-                  Aceitar
-                </button>
-              </div>
-            </article>
-          </section>
+                  <button className='acceptButton'>
+                    Aceitar
+                  </button>
+                </div>
+              </article>
 
+              <article className="solicitacaoCard">
+                <div className="solicitacaoCardContainer">
+                  <img src={avatar} alt=""/>
+
+                  <div>
+                    <h3>Fulano</h3>
+                    <p>05/06/2018 às 09:45</p>
+                  </div>
+                </div>
+                <div className="solicitacaoCardButtons">
+                  <button className='cancelButton'>
+                    Recusar
+                  </button>
+
+                  <button className='acceptButton'>
+                    Aceitar
+                  </button>
+                </div>
+              </article>
+            </section>
+
+          </div>
         </div>
-      </div>
+      </Router>
     );
   }
 }
