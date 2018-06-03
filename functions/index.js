@@ -32,3 +32,11 @@ exports.search = functions.https.onRequest((req, res) => {
     });
   });
 });
+
+exports.reservations = functions.https.onRequest((req, res) => {
+  cors(req, res, () => {
+    const table = admin.database().ref('/reservations').orderByChild('user').equalTo(+req.query.user);
+
+    table.once('value').then((reservations) => res.send(reservations.val()));
+  });
+});

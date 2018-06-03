@@ -1,0 +1,137 @@
+[debug] [2018-06-03T13:39:01.140Z] ----------------------------------------------------------------------
+[debug] [2018-06-03T13:39:01.142Z] Command:       /usr/local/Cellar/node@8/8.11.2/bin/node /usr/local/bin/firebase deploy
+[debug] [2018-06-03T13:39:01.142Z] CLI Version:   3.18.5
+[debug] [2018-06-03T13:39:01.142Z] Platform:      darwin
+[debug] [2018-06-03T13:39:01.142Z] Node Version:  v8.11.2
+[debug] [2018-06-03T13:39:01.142Z] Time:          Sun Jun 03 2018 10:39:01 GMT-0300 (-03)
+[debug] [2018-06-03T13:39:01.142Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-06-03T13:39:01.156Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-06-03T13:39:01.156Z] > authorizing via signed-in user
+[debug] [2018-06-03T13:39:01.160Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/uber-hack-sp  
+  
+ Sun Jun 03 2018 10:39:01 GMT-0300 (-03)
+[debug] [2018-06-03T13:39:02.160Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-03T13:39:02.161Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/uber-hack-sp/tokens  
+  
+ Sun Jun 03 2018 10:39:02 GMT-0300 (-03)
+[debug] [2018-06-03T13:39:02.960Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'uber-hack-sp'...
+[info] 
+[info] i  deploying functions
+[debug] [2018-06-03T13:39:06.249Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase serve --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "dependencies": {
+    "cors": "^2.8.4",
+    "firebase-admin": "^5.12.1",
+    "firebase-functions": "^1.0.3",
+    "geo-dist-calc": "^1.1.0"
+  },
+  "private": true
+}
+[info] i  functions: ensuring necessary APIs are enabled...
+[debug] [2018-06-03T13:39:06.250Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/cloudfunctions.googleapis.com/projectSettings/uber-hack-sp?view=CONSUMER_VIEW  
+  
+ Sun Jun 03 2018 10:39:06 GMT-0300 (-03)
+[debug] [2018-06-03T13:39:06.250Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/runtimeconfig.googleapis.com/projectSettings/uber-hack-sp?view=CONSUMER_VIEW  
+  
+ Sun Jun 03 2018 10:39:06 GMT-0300 (-03)
+[debug] [2018-06-03T13:39:07.702Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-03T13:39:07.708Z] <<< HTTP RESPONSE 200
+[info] ✔  functions: all necessary APIs are enabled
+[debug] [2018-06-03T13:39:07.709Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/uber-hack-sp  
+  
+ Sun Jun 03 2018 10:39:07 GMT-0300 (-03)
+[debug] [2018-06-03T13:39:08.609Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-03T13:39:08.610Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/264181005451:getServerAppConfig  
+  
+ Sun Jun 03 2018 10:39:08 GMT-0300 (-03)
+[debug] [2018-06-03T13:39:10.044Z] <<< HTTP RESPONSE 200
+[info] i  functions: preparing functions directory for uploading...
+[debug] [2018-06-03T13:39:10.047Z] >>> HTTP REQUEST GET https://runtimeconfig.googleapis.com/v1beta1/projects/uber-hack-sp/configs  
+  
+ Sun Jun 03 2018 10:39:10 GMT-0300 (-03)
+[debug] [2018-06-03T13:39:10.451Z] <<< HTTP RESPONSE 200
+[info] i  functions: packaged functions (70.84 KB) for uploading
+[debug] [2018-06-03T13:39:10.706Z] >>> HTTP REQUEST POST https://cloudfunctions.googleapis.com/v1/projects/uber-hack-sp/locations/us-central1/functions:generateUploadUrl  
+  
+ Sun Jun 03 2018 10:39:10 GMT-0300 (-03)
+[debug] [2018-06-03T13:39:11.987Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-03T13:39:11.989Z] >>> HTTP REQUEST PUT https://storage.googleapis.com/gcf-upload-us-central1-57d9a5f9-2703-483c-82c4-f9e6b7e285dc/e347e0ae-797f-40b6-9253-a0caadad3800.zip?GoogleAccessId=264181005451@cloudservices.gserviceaccount.com&Expires=1528034951&Signature=WLptA1NjWqQ5ezri87aCpSgCgdlWt87pUYZvfYCG4qkOVgkVK1PNVF9U4s2ZkJHMa4kW9kwt6aiaNVINOhYlqTWvvY565sj0eGTkUGTJbsoqNIq1zj9kPsv%2BQMONBPBercYL3cyQpIrrdnIN7QZXdRCvtRuGrXpdEjHVAP%2B%2BGTJ7En%2FrhiIPmkzylhlWYJsDD0M3TBqQ7RRX9qyQ1HOmyIOlpNupTENHuTr5aAYAlvnEL2mlVFJ%2BCVHizBgZnL2Lv7%2BmXeplEqXerFm9Yq%2FpNBWChq8Top4GbX5b31LREBg2uVw3fSGAmkBKzXN37tsHkGRyHVKnuE03bTo65zLKGg%3D%3D  
+ ReadStream {
+  _readableState: 
+   ReadableState {
+     objectMode: false,
+     highWaterMark: 65536,
+     buffer: BufferList { head: [Object], tail: [Object], length: 1 },
+     length: 65536,
+     pipes: null,
+     pipesCount: 0,
+     flowing: null,
+     ended: false,
+     endEmitted: false,
+     reading: false,
+     sync: false,
+     needReadable: false,
+     emittedReadable: true,
+     readableListening: false,
+     resumeScheduled: false,
+     destroyed: false,
+     defaultEncoding: 'utf8',
+     awaitDrain: 0,
+     readingMore: false,
+     decoder: null,
+     encoding: null },
+  readable: true,
+  domain: null,
+  _events: { end: [Function] },
+  _eventsCount: 1,
+  _maxListeners: undefined,
+  path: '/var/folders/x8/pr4ljky962z547shf5m3jzdh0000gn/T/firebase-functions-23602Kwy2U7FkAYow.zip',
+  fd: 19,
+  flags: 'r',
+  mode: 438,
+  start: undefined,
+  end: Infinity,
+  autoClose: true,
+  pos: undefined,
+  bytesRead: 65536 } 
+ Sun Jun 03 2018 10:39:11 GMT-0300 (-03)
+[debug] [2018-06-03T13:39:12.602Z] <<< HTTP RESPONSE 200
+[info] ✔  functions: functions folder uploaded successfully
+[debug] [2018-06-03T13:39:12.604Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/projects/uber-hack-sp/locations/us-central1/functions  
+  
+ Sun Jun 03 2018 10:39:12 GMT-0300 (-03)
+[debug] [2018-06-03T13:39:13.840Z] <<< HTTP RESPONSE 200
+[info] i  functions: creating function reservations...
+[debug] [2018-06-03T13:39:13.843Z] Trigger is:  {"httpsTrigger":{}}
+[info] i  functions: updating function search...
+[debug] [2018-06-03T13:39:13.844Z] Trigger is:  {"httpsTrigger":{}}
+[debug] [2018-06-03T13:39:13.846Z] >>> HTTP REQUEST POST https://cloudfunctions.googleapis.com/v1/projects/uber-hack-sp/locations/us-central1/functions  
+ { sourceUploadUrl: 'https://storage.googleapis.com/gcf-upload-us-central1-57d9a5f9-2703-483c-82c4-f9e6b7e285dc/e347e0ae-797f-40b6-9253-a0caadad3800.zip?GoogleAccessId=264181005451@cloudservices.gserviceaccount.com&Expires=1528034951&Signature=WLptA1NjWqQ5ezri87aCpSgCgdlWt87pUYZvfYCG4qkOVgkVK1PNVF9U4s2ZkJHMa4kW9kwt6aiaNVINOhYlqTWvvY565sj0eGTkUGTJbsoqNIq1zj9kPsv%2BQMONBPBercYL3cyQpIrrdnIN7QZXdRCvtRuGrXpdEjHVAP%2B%2BGTJ7En%2FrhiIPmkzylhlWYJsDD0M3TBqQ7RRX9qyQ1HOmyIOlpNupTENHuTr5aAYAlvnEL2mlVFJ%2BCVHizBgZnL2Lv7%2BmXeplEqXerFm9Yq%2FpNBWChq8Top4GbX5b31LREBg2uVw3fSGAmkBKzXN37tsHkGRyHVKnuE03bTo65zLKGg%3D%3D',
+  name: 'projects/uber-hack-sp/locations/us-central1/functions/reservations',
+  entryPoint: 'reservations',
+  labels: { 'deployment-tool': 'cli-firebase' },
+  httpsTrigger: {} } 
+ Sun Jun 03 2018 10:39:13 GMT-0300 (-03)
+[debug] [2018-06-03T13:39:13.847Z] >>> HTTP REQUEST PATCH https://cloudfunctions.googleapis.com/v1/projects/uber-hack-sp/locations/us-central1/functions/search 
+query params: {"updateMask":"sourceUploadUrl,name,labels,httpsTrigger"} 
+ { sourceUploadUrl: 'https://storage.googleapis.com/gcf-upload-us-central1-57d9a5f9-2703-483c-82c4-f9e6b7e285dc/e347e0ae-797f-40b6-9253-a0caadad3800.zip?GoogleAccessId=264181005451@cloudservices.gserviceaccount.com&Expires=1528034951&Signature=WLptA1NjWqQ5ezri87aCpSgCgdlWt87pUYZvfYCG4qkOVgkVK1PNVF9U4s2ZkJHMa4kW9kwt6aiaNVINOhYlqTWvvY565sj0eGTkUGTJbsoqNIq1zj9kPsv%2BQMONBPBercYL3cyQpIrrdnIN7QZXdRCvtRuGrXpdEjHVAP%2B%2BGTJ7En%2FrhiIPmkzylhlWYJsDD0M3TBqQ7RRX9qyQ1HOmyIOlpNupTENHuTr5aAYAlvnEL2mlVFJ%2BCVHizBgZnL2Lv7%2BmXeplEqXerFm9Yq%2FpNBWChq8Top4GbX5b31LREBg2uVw3fSGAmkBKzXN37tsHkGRyHVKnuE03bTo65zLKGg%3D%3D',
+  name: 'projects/uber-hack-sp/locations/us-central1/functions/search',
+  labels: { 'deployment-tool': 'cli-firebase' },
+  httpsTrigger: {} } 
+ Sun Jun 03 2018 10:39:13 GMT-0300 (-03)
+[debug] [2018-06-03T13:39:15.292Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-03T13:39:15.294Z] <<< HTTP RESPONSE 200
+[debug] [2018-06-03T13:39:15.296Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/projects/uber-hack-sp/locations/us-central1/functions  
+  
+ Sun Jun 03 2018 10:39:15 GMT-0300 (-03)
