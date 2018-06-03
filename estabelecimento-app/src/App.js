@@ -1,18 +1,100 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
 import './App.css';
+
+import avatar from './assets/images/profile-image.jpeg';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+      <div>
+
+        <header className="dashHeader">
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+
+        <div className="dFlex">
+          <aside className="dashAside">
+            <nav>
+              <ul>
+                <li>
+                  <a className="active">Agendamentos confirmados</a>
+                </li>
+                <li>
+                  <a>Configurações</a>
+                </li>
+
+              </ul>
+            </nav>
+          </aside>
+
+          <section className="dashCenterContainer">
+            <h1>Agendamentos confirmados</h1>
+
+
+          </section>
+
+          <section className="dashSolicitacoesPendentes">
+            <article className="solicitacaoCard">
+              <div className="solicitacaoCardContainer">
+                <img src={avatar} alt=""/>
+
+                <div>
+                  <h3>Fulano</h3>
+                  <p>05/06/2018 às 09:45</p>
+                </div>
+              </div>
+              <div className="solicitacaoCardButtons">
+                <button className='cancelButton'>
+                  Recusar
+                </button>
+
+                <button className='acceptButton'>
+                  Aceitar
+                </button>
+              </div>
+            </article>
+
+            <article className="solicitacaoCard">
+              <div className="solicitacaoCardContainer">
+                <img src={avatar} alt=""/>
+
+                <div>
+                  <h3>Fulano</h3>
+                  <p>05/06/2018 às 09:45</p>
+                </div>
+              </div>
+              <div className="solicitacaoCardButtons">
+                <button className='cancelButton'>
+                  Recusar
+                </button>
+
+                <button className='acceptButton'>
+                  Aceitar
+                </button>
+              </div>
+            </article>
+
+            <article className="solicitacaoCard">
+              <div className="solicitacaoCardContainer">
+                <img src={avatar} alt=""/>
+
+                <div>
+                  <h3>Fulano</h3>
+                  <p>05/06/2018 às 09:45</p>
+                </div>
+              </div>
+              <div className="solicitacaoCardButtons">
+                <button className='cancelButton'>
+                  Recusar
+                </button>
+
+                <button className='acceptButton'>
+                  Aceitar
+                </button>
+              </div>
+            </article>
+          </section>
+
+        </div>
       </div>
     );
   }
